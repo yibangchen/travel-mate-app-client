@@ -16,7 +16,7 @@ const Main = props => {
       />
 
       <Route
-        exact path='/signin'
+        exact path='/login'
         render={ props =>
           <AuthForm />
         }
