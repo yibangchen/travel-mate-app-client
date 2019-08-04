@@ -1,5 +1,6 @@
 import { setTokenHeader, apiCall } from '../../services/api';
 import { SET_CURRENT_USER } from '../actionTypes';
+import { addError, removeError } from './errors';
 
 const AUTH_PATH = '/api/auth/';
 
@@ -24,10 +25,11 @@ export function authUser(type, userData) {
           localStorage.setItem('jwtToken', token);
           setAuthorizationToken(token);
           dispatch(setCurrentUser(user));
+          dispatch(removeError());
           resolve();
         })
         .catch(err => {
-          // add error here
+          dispatch(addError(err.message));
           reject();
         });
     })

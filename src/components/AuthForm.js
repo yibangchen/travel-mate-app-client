@@ -10,7 +10,8 @@ class AuthForm extends Component {
       firstname: '',
       lastname: '',
       profileImageUrl: '',
-      password: ''
+      password: '',
+      hasAccount: true
     }
   }
 
@@ -25,9 +26,19 @@ class AuthForm extends Component {
   }
 
   render() {
-    const { email } = this.state;
-    const { heading, errors } = this.props;
-    const buttonText = 'Submit';
+    const { email, hasAccount } = this.state;
+    const { heading, errors } = this.props;    
+    const text = {
+      button: {
+        SIGNUP: 'Sign Up',
+        LOGIN: 'Log In'
+      }
+      ,anchor: {
+        SIGNUP: "Already signed up? Click to log in",
+        LOGIN: "Don't have account? Click to sign up"
+      }
+    };
+
     return (
       <div className="row justify-content-md-center text-center">
         <div className="col-md-6">
@@ -50,10 +61,14 @@ class AuthForm extends Component {
             />
 
             <button className="btn btn-primary btn-block btn-lg" type='submit'>
-              {buttonText}
+              { hasAccount ? text.button.LOGIN : text.button.SIGNUP }
             </button>
-
           </form>
+          <div>
+            <p className="link-text switch-auth">
+              { hasAccount ? text.anchor.LOGIN : text.anchor.SIGNUP }
+            </p>
+          </div>
         </div>
       </div>
     );
