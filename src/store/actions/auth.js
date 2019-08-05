@@ -20,7 +20,7 @@ export function authUser(type, userData) {
   return dispatch => {
     return new Promise((resolve, reject) => {
       return apiCall('post', `${AUTH_PATH}${type}`, userData)
-        .then( ( {token, ...user} ) => {
+        .then( ({ token, ...user }) => {
           // API return {id, username, token}
           localStorage.setItem('jwtToken', token);
           setAuthorizationToken(token);
@@ -29,7 +29,7 @@ export function authUser(type, userData) {
           resolve();
         })
         .catch(err => {
-          dispatch(addError(err.message));
+          dispatch(addError(err));
           reject();
         });
     })

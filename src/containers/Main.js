@@ -3,9 +3,10 @@ import { Switch, Route, withRouter, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import Homepage from '../components/Homepage';
 import AuthForm from '../components/AuthForm';
+import { authUser } from '../store/actions/auth';
 
 const Main = props => {
-  const { currentUser } = props;
+  const { currentUser, authUser } = props;
   return (
     <div className="container-fluid main">
       <Route
@@ -18,7 +19,7 @@ const Main = props => {
       <Route
         exact path='/login'
         render={ props =>
-          <AuthForm />
+          <AuthForm onAuth={ authUser } />
         }
       />
 
@@ -33,4 +34,4 @@ function mapStateTopProps(state) {
   }
 }
 
-export default withRouter( connect(mapStateTopProps, { })(Main));
+export default withRouter( connect(mapStateTopProps, { authUser })(Main));

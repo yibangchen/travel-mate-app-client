@@ -1,9 +1,17 @@
 import React from 'react';
 
-const FormItem = ({ text, name, type, id, fn }) => {
+const FormItem = props => {
+  const { name, text, changeFn } = props;
+
   return (
-    <label htmlFor={name}>{text}</label>
-    <input className='form-control' id={id} name={name} type={type} onChange={fn} />
+    <div>
+      <label htmlFor={name}>{text}</label>
+      <input 
+        className='form-control' name={name} onChange={changeFn}
+        {...(props.id && {id: props.id})}
+        type={props.type? props.type : 'text'}
+      />
+    </div>
   );
 }
 

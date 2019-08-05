@@ -24,6 +24,14 @@ class AuthForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const { onAuth, history } = this.props;
+    const authType = this.state.hasAccount ? 'signin': 'signup';
+
+    onAuth(authType, this.state)
+      .then(() => {
+        history.push('/');
+      })
+      .catch(err => {return err;})
   }
 
   changeLogin = () => {
@@ -55,17 +63,19 @@ class AuthForm extends Component {
               </div>
             }
 
-            <label htmlFor="email">Email</label>
-            <input type="text" className="form-control" id="email" name='email' type='text'
-              onChange={this.handleChange} value={email}
-            />
-
-            <label htmlFor='password'>Password</label>
-            <input className='form-control' id='password' name='password' type='password'
-              onChange={this.handleChange}
-            />
-
-            <FormItem text='First Name' name='firstname' type='text' id='firstname' fn={this.handleChange} />
+            { !hasAccount && 
+              <div className="signUp">
+                <FormItem text='First Name' name='firstname' changeFn={this.handleChange} />
+                <FormItem text='Last Name' name='lastname' changeFn={this.handleChange} />
+              </div>
+            }
+            <FormItem text='Email' name='email' changeFn={this.handleChange} id="email"/>
+            <FormItem text='Password' name='password' changeFn={this.handleChange} id='password' type='password'/>
+            { !hasAccount && 
+              <div className="signUp">
+                <FormItem text='Profile Image' changeFn={this.handleChange} id='image-url' name='profileImageUrl' type='image-url'/>
+              </div>
+            }
 
             <button className="btn btn-primary btn-block btn-lg" type='submit'>
               { hasAccount ? text.button.LOGIN : text.button.SIGNUP }
