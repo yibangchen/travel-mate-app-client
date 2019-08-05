@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormItem from './templates/FormItem';
 
 class AuthForm extends Component {
 
@@ -23,6 +24,10 @@ class AuthForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+  }
+
+  changeLogin = () => {
+    this.setState({ hasAccount: !this.state.hasAccount });
   }
 
   render() {
@@ -50,22 +55,24 @@ class AuthForm extends Component {
               </div>
             }
 
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email">Email</label>
             <input type="text" className="form-control" id="email" name='email' type='text'
               onChange={this.handleChange} value={email}
             />
 
-            <label htmlFor='password'>Password:</label>
+            <label htmlFor='password'>Password</label>
             <input className='form-control' id='password' name='password' type='password'
               onChange={this.handleChange}
             />
+
+            <FormItem text='First Name' name='firstname' type='text' id='firstname' fn={this.handleChange} />
 
             <button className="btn btn-primary btn-block btn-lg" type='submit'>
               { hasAccount ? text.button.LOGIN : text.button.SIGNUP }
             </button>
           </form>
           <div>
-            <p className="link-text switch-auth">
+            <p className="link-text switch-auth" onClick={ this.changeLogin }>
               { hasAccount ? text.anchor.LOGIN : text.anchor.SIGNUP }
             </p>
           </div>
