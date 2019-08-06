@@ -9,20 +9,19 @@ const Main = props => {
   const { currentUser, authUser } = props;
   return (
     <div className="container-fluid main">
-      <Route
-        exact path='/'
-        render={ props =>
-          <Homepage currentUser={ currentUser } />
-        }
-      />
+      <Switch>
+        <Route exact path='/'
+          render={ props =>
+            <Homepage currentUser={ currentUser } />
+          }
+        />
 
-      <Route
-        exact path='/login'
-        render={ props =>
-          <AuthForm onAuth={ authUser } />
-        }
-      />
-
+        <Route exact path='/login'
+          render={ props =>
+            <AuthForm onAuth={ authUser } />
+          }
+        />
+      </Switch>
     </div>
   );
 }

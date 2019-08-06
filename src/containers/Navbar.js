@@ -1,36 +1,56 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { logout } from '../store/actions/auth';
 
 class Navbar extends Component {
 
+  logout = e => {
+    e.preventDefault();
+    this.props.logout();
+  }
+
   render() {
-    // const { currentUser } = this.props;
+    const { currentUser } = this.props;
     return (
-      <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="#">TravelMate</a>
-        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
-          <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-sm navbar-light bg-light">
+        
+        <Link to='/' className="navbar-brand">TravelMate</Link>
+        <button className="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="main-navigation">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Plan</a>
+
+        <div className="collapse navbar-collapse" id="main-navigation">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to='/' className="nav-link">Plan</Link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Message</a>
+            <li className="nav-item">
+              <Link to='/' className="nav-link">Message</Link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Inspire</a>
+            <li className="nav-item">
+              <Link to='/' className="nav-link">Inspire</Link>
             </li>
           </ul>
         </div>
+
         <div className="nav navbar-nav navbar-right collapse navbar-collapse" id="user-auth">
-          <ul className="navbar-nav">
-            <li className="navbar-nav">
-              <Link to='/login' className="nav-link">Login</Link>
-            </li>
-          </ul>
+          { currentUser.isAuthenticated ? (
+            <ul className="navbar-nav">
+              <li className="navbar-nav">
+                <Link to='/' className="nav-link">Messages</Link>
+              </li>
+              <li className="navbar-nav">
+                <a onClick={this.logout} className="nav-link">Log Out</a>
+              </li>
+            </ul>
+          ) : (
+            <ul className="navbar-nav">
+              <li className="navbar-nav">
+                <Link to='/login' className="nav-link">Login</Link>
+              </li>
+            </ul>
+          )}
         </div>
       </nav>
     );
@@ -43,4 +63,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { })(Navbar)
+export default connect(mapStateToProps, { logout })(Navbar)

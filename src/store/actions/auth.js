@@ -15,6 +15,14 @@ export function setAuthorizationToken(token) {
   setTokenHeader(token);
 }
 
+export function logout() {
+  return dispatch => {
+    localStorage.clear();
+    setAuthorizationToken(false);
+    dispatch(setCurrentUser({}));
+  }
+}
+
 // redux thunk
 export function authUser(type, userData) {
   return dispatch => {
