@@ -26,9 +26,6 @@ class Navbar extends Component {
               <Link to='/' className="nav-link">Plan</Link>
             </li>
             <li className="nav-item">
-              <Link to='/' className="nav-link">Message</Link>
-            </li>
-            <li className="nav-item">
               <Link to='/' className="nav-link">Inspire</Link>
             </li>
           </ul>

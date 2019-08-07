@@ -18,7 +18,7 @@ const Main = props => {
 
         <Route exact path='/login'
           render={ props =>
-            <AuthForm onAuth={ authUser } />
+            <AuthForm onAuth={ authUser } {...props} />
           }
         />
       </Switch>

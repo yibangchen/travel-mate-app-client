@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+input {
+  margin: 5px;
+}
+
 .link-text {
   text-decoration: underline;
   color: orangered;

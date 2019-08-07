@@ -16,6 +16,7 @@ const Homepage = ({ currentUser }) => {
       </div>
     );
   }
+  
   return (
     <div>
       

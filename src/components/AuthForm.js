@@ -26,12 +26,23 @@ class AuthForm extends Component {
     e.preventDefault();
     const { onAuth, history } = this.props;
     const authType = this.state.hasAccount ? 'signin': 'signup';
-
     onAuth(authType, this.state)
       .then(() => {
+        this.resetForm();
         history.push('/');
       })
       .catch(err => {return err;})
+  }
+
+  resetForm = () => {
+    this.setState({ 
+      email: '',
+      username: '',
+      firstname: '',
+      lastname: '',
+      profileImageUrl: '',
+      password: '' 
+    });
   }
 
   changeLogin = () => {

@@ -5,11 +5,11 @@ const FormItem = props => {
 
   return (
     <div>
-      <label htmlFor={name}>{text}</label>
       <input 
         className='form-control' name={name} onChange={changeFn}
         {...(props.id && {id: props.id})}
         type={props.type? props.type : 'text'}
+        placeholder={text}
       />
     </div>
   );
