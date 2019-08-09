@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router';
 
 const Homepage = ({ currentUser }) => {
   if (!currentUser.isAuthenticated) {
@@ -13,10 +14,12 @@ const Homepage = ({ currentUser }) => {
             HERE         
           </Link>
         </div>
+
+
       </div>
     );
   }
-  
+
   return (
     <div>
       
@@ -24,4 +27,4 @@ const Homepage = ({ currentUser }) => {
   )
 }
 
-export default Homepage
+export default withRouter(Homepage);

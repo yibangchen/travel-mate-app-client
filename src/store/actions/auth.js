@@ -29,10 +29,11 @@ export function authUser(type, userData) {
     return new Promise((resolve, reject) => {
       return apiCall('post', `${AUTH_PATH}${type}`, userData)
         .then( ({ token, ...user }) => {
-          // API return {id, username, token}
+          const { id, username } = user
           localStorage.setItem('jwtToken', token);
+          localStorage.setItem('userData', user);
           setAuthorizationToken(token);
-          dispatch(setCurrentUser(user));
+          dispatch(setCurrentUser({ id, username }));
           dispatch(removeError());
           resolve();
         })
