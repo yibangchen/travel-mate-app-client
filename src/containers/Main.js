@@ -3,6 +3,7 @@ import { Switch, Route, withRouter, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import Homepage from '../components/Homepage';
 import AuthForm from '../components/AuthForm';
+import Itineraries from './Itineraries';
 import { authUser } from '../store/actions/auth';
 
 const Main = props => {
@@ -16,9 +17,15 @@ const Main = props => {
           }
         />
 
-        <Route exact path='/login'
+        <Route path='/login'
           render={ props =>
             <AuthForm onAuth={ authUser } {...props} />
+          }
+        />
+
+        <Route path='/itinerary'
+          render={ props =>
+            <Itineraries currentUser={ currentUser } />
           }
         />
       </Switch>

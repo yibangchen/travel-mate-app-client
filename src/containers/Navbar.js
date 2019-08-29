@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Switch, Route, withRouter, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../store/actions/auth';
@@ -21,14 +22,18 @@ class Navbar extends Component {
         </button>
 
         <div className="collapse navbar-collapse" id="main-navigation">
+
           <ul className="navbar-nav">
+
             <li className="nav-item">
-              <Link to='/' className="nav-link">Plan</Link>
+              <Link to={`/itineraries`} className="nav-link">Trips</Link>
             </li>
+            
             <li className="nav-item">
               <Link to='/' className="nav-link">Inspire</Link>
             </li>
           </ul>
+
         </div>
 
         <div className="nav navbar-nav navbar-right collapse navbar-collapse" id="user-auth">
@@ -50,6 +55,7 @@ class Navbar extends Component {
           )}
         </div>
       </nav>
+
     );
   }
 }
