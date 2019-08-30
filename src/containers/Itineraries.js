@@ -3,6 +3,7 @@ import { Switch, Route, withRouter, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { authUser } from '../store/actions/auth';
 import ItineraryBlock from '../components/ItineraryBlock';
+import ItineraryForm from '../components/ItineraryForm';
 
 /*
   /     display all trips
@@ -30,15 +31,12 @@ const Itineraries = props => {
 
   return (
     <div className="container-fluid main">
-      <div>Trips: </div>
+      <ItineraryForm />
       {
-      /*
-
-        [...JSON.parse(localStorage.itineraries)].length
-        .map((trip, ind) =>
-        <ItineraryBlock tripDetail={ trip } tripNum={ ind+1 } />
-      )
-      */
+        [...JSON.parse(localStorage.itineraries)]
+          .map((trip, ind) =>
+            <ItineraryBlock tripDetail={ trip } tripNum={ ind+1 } />
+          )
       }
     </div>
   );

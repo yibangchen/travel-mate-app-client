@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FormItem from './templates/FormItem';
+import { handleInputChange } from '../services/helpers';
 
 class AuthForm extends Component {
 
@@ -14,12 +15,6 @@ class AuthForm extends Component {
       password: '',
       hasAccount: true
     }
-  }
-
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
   }
 
   handleSubmit = e => {
@@ -76,15 +71,15 @@ class AuthForm extends Component {
 
             { !hasAccount && 
               <div className="signUp">
-                <FormItem text='First Name' name='firstname' changeFn={this.handleChange} />
-                <FormItem text='Last Name' name='lastname' changeFn={this.handleChange} />
+                <FormItem text='First Name' name='firstname' changeFn={this.handleInputChange} />
+                <FormItem text='Last Name' name='lastname' changeFn={this.handleInputChange} />
               </div>
             }
-            <FormItem text='Email' name='email' changeFn={this.handleChange} id="email"/>
-            <FormItem text='Password' name='password' changeFn={this.handleChange} id='password' type='password'/>
+            <FormItem text='Email' name='email' changeFn={this.handleInputChange} id="email"/>
+            <FormItem text='Password' name='password' changeFn={this.handleInputChange} id='password' type='password'/>
             { !hasAccount && 
               <div className="signUp">
-                <FormItem text='Profile Image' changeFn={this.handleChange} id='image-url' name='profileImageUrl' type='image-url'/>
+                <FormItem text='Profile Image' changeFn={this.handleInputChange} id='image-url' name='profileImageUrl' type='image-url'/>
               </div>
             }
 

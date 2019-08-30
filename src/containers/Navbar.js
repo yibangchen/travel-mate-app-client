@@ -26,7 +26,7 @@ class Navbar extends Component {
           <ul className="navbar-nav">
 
             <li className="nav-item">
-              <Link to={`/itineraries`} className="nav-link">Trips</Link>
+              <Link to={'/itineraries'} className="nav-link">Trips</Link>
             </li>
             
             <li className="nav-item">

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Homepage from '../components/Homepage';
 import AuthForm from '../components/AuthForm';
 import Itineraries from './Itineraries';
+import NotFound from './NotFound';
 import { authUser } from '../store/actions/auth';
 
 const Main = props => {
@@ -28,6 +29,8 @@ const Main = props => {
             <Itineraries currentUser={ currentUser } />
           }
         />
+
+        <Route component={NotFound} />
       </Switch>
     </div>
   );
