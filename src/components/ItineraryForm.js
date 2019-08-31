@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 // import { handleInputChange } from '../services/helpers';
+import { connect } from 'react-redux';
 import FormItem from './templates/FormItem';
 import DateRange from './templates/DateRange';
+import { addNewItinerary } from '../store/actions/itinerary'
+
 
 class ItineraryForm extends Component {
 
   constructor( props ) {
     super(props);
 
-    this.state = {
+    this.state = {      
       destination: '',
       arrive: '',
       depart: ''
@@ -16,13 +19,13 @@ class ItineraryForm extends Component {
   }
 
   handleSubmit = e => {
-    // e.preventDefault();
-    // const { destination, arrive, depart } = this.state;
-    // if (destination.length && arrive.length && depart.length) {
-    //   // API backend
-    //   // save to localStorage
-      
-    // }
+    e.preventDefault();
+    const { destination, arrive, depart } = this.state;
+    if (destination.length && arrive.length && depart.length) {
+      // API backend
+      // save to localStorage
+      this.props.addNewItinerary({ destination, arrive, depart });   
+    }
   }
 
   handleInputChange = e => {
@@ -63,4 +66,13 @@ class ItineraryForm extends Component {
   }
 }
 
-export default ItineraryForm;
+function mapStateTopProps(state) {
+  return {
+
+  }
+}
+
+export default connect(mapStateTopProps, { addNewItinerary })(ItineraryForm);
+
+
+
