@@ -24,7 +24,7 @@ const Main = props => {
           }
         />
 
-        <Route path='/itinerary'
+        <Route path='/itineraries'
           render={ props =>
             <Itineraries currentUser={ currentUser } />
           }

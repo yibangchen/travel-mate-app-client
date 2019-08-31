@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormItem from './templates/FormItem';
-import { handleInputChange } from '../services/helpers';
+// import { handleInputChange } from '../services/helpers';
 
 class AuthForm extends Component {
 
@@ -27,6 +27,12 @@ class AuthForm extends Component {
         history.push('/');
       })
       .catch(err => {return err;})
+  }
+
+  handleInputChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   resetForm = () => {
