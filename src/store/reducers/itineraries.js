@@ -5,7 +5,7 @@ const itineraries = (state=[], action) => {
     case LOAD_TRIPS:
       return [...action.itineraries];
     case ADD_TRIP:
-      return state;
+      return [...state, action.itinerary];
     case REMOVE_TRIP:
       return state.filter(trip => trip.id !== action.tripId);
     default:

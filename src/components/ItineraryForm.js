@@ -22,9 +22,7 @@ class ItineraryForm extends Component {
     e.preventDefault();
     const { destination, arrive, depart } = this.state;
     if (destination.length && arrive.length && depart.length) {
-      // API backend
-      // save to localStorage
-      this.props.addNewItinerary({ destination, arrive, depart });   
+      this.props.dispatch( addNewItinerary({ destination, arrive, depart }) );   
     }
   }
 
@@ -66,13 +64,18 @@ class ItineraryForm extends Component {
   }
 }
 
-function mapStateTopProps(state) {
+const mapStateTopProps = state => {
   return {
 
   }
 }
 
-export default connect(mapStateTopProps, { addNewItinerary })(ItineraryForm);
+const mapDispatchToProps = dispatch => ({
+   addNewItinerary,
+   dispatch
+})
+
+export default connect( mapStateTopProps, mapDispatchToProps )(ItineraryForm);
 
 
 
