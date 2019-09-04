@@ -13,7 +13,7 @@ class ItineraryForm extends Component {
 
     this.state = {
       openForm: this.props.showFlag,
-      isFormComplete: false,
+      isFormComplete: true,
       tripDetails: {       
         destination: '',
         arrive: '',
@@ -25,7 +25,8 @@ class ItineraryForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.isFormComplete) {
-      this.props.dispatch( addNewItinerary( this.state.tripDetails ) );   
+      this.props.dispatch( addNewItinerary( this.state.tripDetails ) );
+      this.handleOpenForm();
     }
   }
 
@@ -48,6 +49,12 @@ class ItineraryForm extends Component {
     });
   }
 
+  handleOpenForm = () => {
+    this.setState({
+      openForm: !this.state.openForm
+    });
+  }
+
   showStyle = flag => flag? {} : { display: 'none' };
 
   render() {
@@ -57,7 +64,10 @@ class ItineraryForm extends Component {
  
     return (
       <div className="row flex-item container itinerary-form">
-        <h2 style={ this.showStyle(this.state.openForm) }>Add new trip</h2>
+        <h2 style={ this.showStyle(this.state.openForm) }
+          onClick={ this.handleOpenForm }
+        >Add new trip</h2>
+
         <form onSubmit={this.handleSubmit} style={ this.showStyle(!this.state.openForm) }>
           <h2>{heading}</h2>
 
