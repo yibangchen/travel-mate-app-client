@@ -6,6 +6,7 @@ import AuthForm from '../components/AuthForm';
 import Itineraries from './Itineraries';
 import NotFound from './NotFound';
 import { authUser } from '../store/actions/auth';
+import './main.css';
 
 const Main = props => {
   const { currentUser, authUser } = props;

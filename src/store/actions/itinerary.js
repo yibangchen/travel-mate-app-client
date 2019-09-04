@@ -17,16 +17,16 @@ export const removeItinerary = (tripId) => {
 }
 
 export const fetchItineraries = () => {
-  const itineraries = [{
-      place: 'London',
+  const itineraries = [{      
+      destination: 'London',
       arrive: '9/1/2019',
       depart: '9/3/2019'
     }, {
-      place: 'Paris',
+      destination: 'Paris',
       arrive: '9/4/2019',
       depart: '9/7/2019'
     }, {
-      place: 'Dubai',
+      destination: 'Dubai',
       arrive: '9/8/2019',
       depart: '9/9/2019'
     }];

@@ -13,19 +13,30 @@ import { fetchItineraries } from '../store/actions/itinerary'
 
 class Itineraries extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  }
+
   componentDidMount() {
     this.props.fetchItineraries();
+  }
+
+  handleRemove = e => {
+    e.preventDefault();
   }
 
   render(){
     const { itineraries } = this.props;
     let tripList = itineraries.map((trip, ind) =>
-        <ItineraryBlock tripDetail={ trip } tripNum={ ind+1 } /> );
+        <ItineraryBlock tripDetail={ trip } tripNum={ ind+1 } removeFn={this.handleRemove} /> );
 
     return (
-      <div className="container-fluid main">
+      <div className="container-fluid container itineraries">
         { tripList }
-        <ItineraryForm />
+        <ItineraryForm showFlag={ !tripList.length } />        
       </div>
     );
   }

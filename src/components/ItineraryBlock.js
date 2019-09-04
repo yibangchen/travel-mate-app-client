@@ -5,11 +5,16 @@ import { authUser } from '../store/actions/auth';
 
 const ItineraryBlock = props => {
   const { currentUser, authUser, tripDetail, tripNum } = props;
+  const colors = ['grey','paleturquoise','lavender','lightgreen', 'deepskyblue'];
+  const style = {
+    backgroundColor: colors[props.itemNum % colors.length]
+  };
 
+  // set background image for itinerary-block
   return (
-    <div className="container-fluid main">
-      <h3>Trip {tripNum}:</h3>
-      <div>{tripDetail.location}, {tripDetail.arrive}</div>
+    <div className="container-fluid itinerary-block flex-item container" style={style}>
+      <h3>{tripDetail.destination}</h3>
+      <div>{tripDetail.arrive} - {tripDetail.depart}</div>
     </div>
   );
 }
