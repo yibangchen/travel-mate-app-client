@@ -26,15 +26,15 @@ const Main = props => {
           }
         />
 
+        <Route 
+          path='/itineraries/:tripId'
+          component={ ItineraryPage }
+        />
+
         <Route path='/itineraries'
           render={ props =>
             <Itineraries currentUser={ currentUser } />
           }
-        />
-
-        <Route 
-          path='/itineraries/:tripId'
-          component={ ItineraryPage }
         />
 
         <Route component={NotFound} />

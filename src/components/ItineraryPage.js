@@ -10,23 +10,26 @@ class ItineraryPage extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchItineraries();
+
   }
 
   render(){
     return (
-      <div>A trip</div>
+      <div>
+        {(this.props.itinerary) ? this.props.itinerary.destination : 'null'}
+      </div>
     );
   }
 
 }
 
 
-function mapStateTopProps(state) {
+function mapStateToProps(state, ownProps) {
+  const { tripId } = ownProps.match.params;
   return {
-    itineraries: state.itineraries
+    itinerary: state.itineraries[tripId-1]
   }
 }
 
-export default connect(mapStateTopProps, {  })( ItineraryPage );
+export default connect(mapStateToProps, {  })( ItineraryPage );
 
