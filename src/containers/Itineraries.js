@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, withRouter, Redirect } from 'react-router';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { authUser } from '../store/actions/auth';
 import ItineraryBlock from '../components/ItineraryBlock';
@@ -31,7 +31,12 @@ class Itineraries extends React.Component {
   render(){
     const { itineraries } = this.props;
     let tripList = itineraries.map((trip, ind) =>
-        <ItineraryBlock tripDetail={ trip } tripNum={ ind+1 } removeFn={this.handleRemove} /> );
+        <ItineraryBlock 
+          tripDetail={ trip } 
+          tripNum={ ind+1 } 
+          removeFn={this.handleRemove}
+          onClick={ ()=>{} }
+        /> );
 
     return (
       <div className="container-fluid container itineraries">
@@ -48,5 +53,5 @@ function mapStateTopProps(state) {
   }
 }
 
-export default withRouter( connect(mapStateTopProps, { fetchItineraries })(Itineraries));
+export default connect(mapStateTopProps, { fetchItineraries })(Itineraries);
 

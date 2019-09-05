@@ -5,12 +5,10 @@ import FormItem from './templates/FormItem';
 import DateRange from './templates/DateRange';
 import { addNewItinerary } from '../store/actions/itinerary'
 
-
 class ItineraryForm extends Component {
 
   constructor( props ) {
     super(props);
-
     this.state = {
       openForm: this.props.showFlag,
       isFormComplete: true,
@@ -23,10 +21,12 @@ class ItineraryForm extends Component {
   }
 
   handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault();    
     if (this.state.isFormComplete) {
       this.props.dispatch( addNewItinerary( this.state.tripDetails ) );
       this.handleOpenForm();
+    } else {
+      // highlight imcomplete part of form
     }
   }
 
@@ -59,14 +59,17 @@ class ItineraryForm extends Component {
 
   render() {
     const { errors } = this.props;
-    const heading = 'Where are you going?',
-          buttonText = 'Submit';
+    const buttonText = '+ New Trip',
+          heading = 'Destination',
+          submitText = 'Submit';
  
     return (
       <div className="row flex-item container itinerary-form">
-        <h2 style={ this.showStyle(this.state.openForm) }
+        <h2 
+          style={ this.showStyle(this.state.openForm) }
           onClick={ this.handleOpenForm }
-        >Add new trip</h2>
+          className='button'
+        >{buttonText}</h2>
 
         <form onSubmit={this.handleSubmit} style={ this.showStyle(!this.state.openForm) }>
           <h2>{heading}</h2>
@@ -80,7 +83,7 @@ class ItineraryForm extends Component {
           <FormItem text='Destination' name='destination' changeFn={this.handleInputChange} />
           <DateRange changeFn={this.handleDateChange}/>
           <button className="btn btn-primary btn-block btn-lg" type='submit'>
-            {buttonText}
+            {submitText}
           </button>
         </form>
       </div>

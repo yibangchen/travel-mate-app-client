@@ -1,22 +1,26 @@
 .container {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   /*border: 1px solid red;*/
 }
 
 .flex-item {
-  margin: 0;
-  padding: 1em;
+  margin: 0.5em;
+  padding: 0.5em;
 /*  border: 0.5px dotted black;
   border-radius: 1px;
 */
-  width: 400px; 
+  width: 250px; 
   flex: 1;
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.button {
+  cursor: pointer;
 }
 
 .itinerary-form {

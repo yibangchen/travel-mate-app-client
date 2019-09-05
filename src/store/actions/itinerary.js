@@ -29,6 +29,26 @@ export const fetchItineraries = () => {
       destination: 'Dubai',
       arrive: '9/8/2019',
       depart: '9/9/2019'
+    }, {
+      destination: 'Bangkok',
+      arrive: '9/10/2019',
+      depart: '9/13/2019'
+    }, {
+      destination: 'Singapore',
+      arrive: '9/15/2019',
+      depart: '9/17/2019'
+    }, {
+      destination: 'Hanoi',
+      arrive: '9/18/2019',
+      depart: '9/21/2019'
+    }, {
+      destination: 'Shanghai',
+      arrive: '9/22/2019',
+      depart: '9/25/2019'
+    }, {
+      destination: 'Tokyo',
+      arrive: '9/26/2019',
+      depart: '9/29/2019'
     }];
 
   return dispatch => {
