@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormItem from './templates/FormItem';
+import FormItem from '../templates/FormItem';
 // import { handleInputChange } from '../services/helpers';
 
 class AuthForm extends Component {

@@ -14,10 +14,10 @@ const ItineraryBlock = props => {
   // set background image for itinerary-block
   return (
     <div className="container-fluid itinerary-block flex-item container" style={ style }>
-      <Link to={`/itineraries/${props.tripNum}`}>
-        <h3 className='button'>
+      <Link to={`/itineraries/${props.tripNum}`} className='react-link'>
+        <div className='button block-destination'>
           {tripDetail.destination}
-        </h3>        
+        </div>
       </Link>
       <div>{tripDetail.arrive} - {tripDetail.depart}</div>
     </div>

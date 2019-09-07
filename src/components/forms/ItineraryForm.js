@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import { handleInputChange } from '../services/helpers';
 import { connect } from 'react-redux';
-import FormItem from './templates/FormItem';
-import DateRange from './templates/DateRange';
-import { addNewItinerary } from '../store/actions/itinerary'
+import FormItem from '../templates/FormItem';
+import DateRange from '../templates/DateRange';
+import { addNewItinerary } from '../../store/actions/itinerary'
 
 class ItineraryForm extends Component {
 

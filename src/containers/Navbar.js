@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Switch, Route, withRouter, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../store/actions/auth';

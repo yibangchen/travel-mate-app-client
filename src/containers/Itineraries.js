@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { authUser } from '../store/actions/auth';
 import ItineraryBlock from '../components/ItineraryBlock';
-import ItineraryForm from '../components/ItineraryForm';
+import ItineraryForm from '../components/forms/ItineraryForm';
 import { fetchItineraries } from '../store/actions/itinerary'
 
 /*
