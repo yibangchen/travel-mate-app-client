@@ -40,7 +40,9 @@ class Itineraries extends React.Component {
 
     return (
       <div className="container-fluid container itineraries">
-        { tripList }
+        <div className="container">
+          { tripList }
+        </div>
         <ItineraryForm showFlag={ !tripList.length } />        
       </div>
     );

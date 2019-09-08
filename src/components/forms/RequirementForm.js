@@ -31,6 +31,8 @@ class RequirementForm extends React.Component {
     const heading = 'Who would you expect?',
           submitText = 'Submit';
     const { errors } = this.props;
+    const requirement = {
+    }
   
     return (
       <div>

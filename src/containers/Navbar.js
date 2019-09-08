@@ -39,7 +39,7 @@ class Navbar extends Component {
           { currentUser.isAuthenticated ? (
             <ul className="navbar-nav">
               <li className="navbar-nav">
-                <Link to='/' className="nav-link">Messages</Link>
+                <Link to='/messages' className="nav-link">Messages</Link>
               </li>
               <li className="navbar-nav">
                 <a onClick={this.logout} className="nav-link">Log Out</a>

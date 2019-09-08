@@ -4,6 +4,7 @@ import { fetchItineraries } from '../store/actions/itinerary';
 import NotFound from '../containers/NotFound';
 import ItineraryBlock from './ItineraryBlock';
 import RequirementForm from './forms/RequirementForm';
+import MessageList from '../containers/MessageList';
 
 class ItineraryPage extends React.Component {
 
@@ -30,6 +31,7 @@ class ItineraryPage extends React.Component {
           tripNum={this.props.match.params}
         />
         <RequirementForm />
+        <MessageList/>
       </div>
     );
   }

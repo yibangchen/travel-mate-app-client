@@ -19,24 +19,25 @@ const Main = props => {
             <Homepage currentUser={ currentUser } />
           }
         />
-
         <Route path='/login'
           render={ props =>
             <AuthForm onAuth={ authUser } {...props} />
           }
         />
-
         <Route 
           path='/itineraries/:tripId'
           component={ ItineraryPage }
         />
-
         <Route path='/itineraries'
           render={ props =>
             <Itineraries currentUser={ currentUser } />
           }
         />
-
+        <Route path='messages'
+          render={ props =>
+            <div />
+          }
+        />
         <Route component={NotFound} />
       </Switch>
     </div>
